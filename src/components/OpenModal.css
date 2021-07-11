@@ -1,0 +1,9 @@
+.openModal span {
+    display: inline-block;
+}
+
+.openModal button {
+    margin: -10px;
+    padding: 10px;
+    text-decoration: underline;
+}
