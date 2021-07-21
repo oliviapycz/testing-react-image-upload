@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
-import { StoreContext } from "../Provider/sharedStore";
+import { StoreContext } from "../../Provider/sharedStore";
 
 export function CropImage(props) {
   const {
@@ -103,7 +103,7 @@ export function CropImage(props) {
           crop={crop}
           onChange={onCropChange}
           onComplete={onCropComplete}
-          style={{ width: '200px', height:'auto'}}
+          style={{ width: '300px', height:'auto'}}
           ruleOfThirds={true}
         />
       ) }

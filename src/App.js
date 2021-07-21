@@ -1,10 +1,11 @@
 /* eslint-disable */
-import React, { useCallback, useEffect, useState } from "react";
-import { UploadImage } from './components/UploadImage';
-import { OpenWebcam } from './components/OpenWebcam';
-import { OpenModalComponent} from "./components/OpenModal";
-import './App.css';
-import { NoProfilePictureIconComponent } from './Icons/NoProfilePicture.component'
+import React, { useCallback, useEffect, useState } from "react"
+import { UploadImage } from './components/UploadImage/UploadImage'
+import { OpenWebcam } from './components/OpenWebcam/OpenWebcam'
+import { OpenModalComponent} from "./components/OpenModal/OpenModal"
+import './App.css'
+import { isMobile } from 'react-device-detect'
+import { ImagePreview } from './components/ImagePreview/ImagePreview'
 import { StoreContext } from './Provider/sharedStore'
 
 
@@ -21,7 +22,7 @@ export default function App() {
     reader.readAsDataURL(base64Preview);
     reader.onloadend = function() {
       setBase64Result(reader.result.slice(0, 50))
-      return reader.result;
+      return reader.result
     }
   })
 
@@ -36,32 +37,18 @@ export default function App() {
     <>
       <header>
         <h1>Testing Image Upload</h1>
-        
       </header>
       <main>
-        <div>
-          <p>Image preview</p>
+        <div className="imagePreview">
           <ImagePreview imagePreview={imagePreview}/>
           <p>Image URL: {imagePreview ? imagePreview : 'none'}</p>
           <p>Base64: { base64Result ? base64Result + ' [...]' : 'none'}</p>
         </div>
         <div className="userSelection">
           <OpenModalComponent modal={UploadImage} label="Image Upload"/>
-          <OpenModalComponent modal={OpenWebcam} label="Image Webcam"/>
+          { !isMobile && <OpenModalComponent modal={OpenWebcam} label="Image Webcam"/> }
         </div>
       </main>
-    </>
-  )
-}
-
-function ImagePreview(props) {
-  const { imagePreview } = props
-  
-  return (
-    <>
-      { imagePreview
-          ? <img src={imagePreview} alt="alt" width="90" height="auto" />
-          : <NoProfilePictureIconComponent /> }
     </>
   )
 }

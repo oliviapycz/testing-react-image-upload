@@ -1,8 +1,11 @@
 header {
   display: flex;
   justify-content: space-around;
-  height: 6vh;
   padding: 1em;
+}
+
+header h1 {
+  font-size: 22px;
 }
 
 main {
@@ -10,17 +13,26 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 80%;
   margin: auto;
 }
 
 main p {
   max-width: 200px;
 }
-@media (max-width: 350px) {
+
+@media (min-width: 680px) {
   header h1 {
-    font-size: 22px;
+    font-size: 26px;
   }
+
+  main {
+    width: 60%;
+  }
+}
+
+.imagePreview {
+  margin: auto;
 }
 
 .userSelection {
@@ -30,6 +42,7 @@ main p {
   justify-content: space-around;
   width: 100%;
 }
+
 .OpenWebcam, .CropImage {
   display: flex;
   flex-direction: column;

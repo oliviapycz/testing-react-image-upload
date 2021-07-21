@@ -1,7 +1,8 @@
 import React from 'react';
-import { ModalLayoutComponent } from '../components/templates/ModalLayout/ModalLayout'
-import { CropImage } from './CropImage';
-import { StoreContext } from "../Provider/sharedStore";
+import { ModalLayoutComponent } from '../templates/ModalLayout/ModalLayout'
+import { CropImage } from '../CropImage/CropImage';
+import { StoreContext } from "../../Provider/sharedStore";
+import './UploadImage.css';
 
 export function UploadImage(props) {
   const { imageToCrop: [imageToCrop, setImageToCrop] } = React.useContext(StoreContext)
@@ -26,14 +27,17 @@ export function UploadImage(props) {
           ? <CropImage
             onClose={onClose}
           />
-          : <input
-          type="file"
-          id="picture"
-          name="picture"
-          required
-          accept="image/*"
-          onChange={onImageUpload}
-        /> }
+          : (<>
+          <label htmlFor="picture">Take a photo</label>
+          <input
+            type="file"
+            id="picture"
+            name="picture"
+            required
+            accept="image/*"
+            onChange={onImageUpload}
+          />
+        </>) }
     </ModalLayoutComponent>
   )
 }

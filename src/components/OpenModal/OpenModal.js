@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react'
-import './OpenModal.css';
+import './OpenModal.css'
 
 export function OpenModalComponent(props) {
   const {

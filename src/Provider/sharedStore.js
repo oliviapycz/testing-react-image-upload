@@ -1,9 +1,8 @@
-/* eslint-disable */
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 export const StoreContext = React.createContext(null)
 
-export default ({ children }) => {
+export const StoreProvider =  ({ children }) => {
   const [imagePreview, setImagePreview] = useState('')
   const [base64Preview, setBase64Preview] = useState('')
   const [imageToCrop, setImageToCrop] = useState('')
